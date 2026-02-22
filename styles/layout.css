@@ -1,0 +1,135 @@
+/* Layout CSS - Grid, flexbox y estructura de layout */
+
+/* ============================================
+   Contenedor Principal
+   ============================================ */
+
+.container {
+  max-width: 1200px; /* Fallback */
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* ============================================
+   Header Layout
+   ============================================ */
+
+.site-header {
+  padding: var(--spacing-lg) 0;
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.name {
+  margin-bottom: var(--spacing-xs);
+}
+
+.tagline {
+  color: var(--color-text-light);
+  font-size: var(--font-size-large);
+  margin-bottom: 0;
+}
+
+/* Navegación con Flexbox */
+.main-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--spacing-sm);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.nav-list li {
+  margin: 0;
+}
+
+/* ============================================
+   Secciones
+   ============================================ */
+
+.section {
+  padding: var(--spacing-xl) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.section-title {
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+
+/* ============================================
+   Grid de Habilidades
+   ============================================ */
+
+.skills-grid {
+  /* Fallback para navegadores sin soporte de Grid */
+  display: block;
+  /* Grid moderno */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+/* Fallback adicional: si Grid no está soportado, usar flexbox */
+@supports not (display: grid) {
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+  }
+  
+  .skill-category {
+    flex: 1 1 250px;
+  }
+}
+
+.skill-category {
+  background-color: var(--color-background-alt);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+}
+
+.category-title {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-large);
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-item {
+  padding: var(--spacing-xs) 0;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.skill-item:last-child {
+  border-bottom: none;
+}

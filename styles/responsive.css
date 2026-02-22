@@ -1,0 +1,251 @@
+/* Responsive CSS - Media queries y adaptaciones móviles */
+
+/* ============================================
+   Media Queries para Móvil (max-width: 768px)
+   ============================================ */
+
+@media (width <= 768px) {
+  /* Ajustar tamaños de fuente para móvil */
+  :root {
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.75rem;
+    --font-size-h3: 1.25rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+  }
+
+  /* Contenedor con menos padding en móvil */
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  /* Header más compacto */
+  .site-header {
+    padding: var(--spacing-md) 0;
+  }
+
+  .header-content {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  /* Navegación vertical para móvil */
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  .nav-list a {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+    padding: var(--spacing-sm);
+  }
+
+  /* Secciones con menos padding */
+  .section {
+    padding: var(--spacing-lg) 0;
+  }
+
+  /* Grid de habilidades en una columna */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  /* Ajustar tamaño de categorías de habilidades */
+  .skill-category {
+    padding: var(--spacing-sm);
+  }
+
+  /* Proyectos más compactos */
+  .project-item {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+  }
+
+  /* Contacto más compacto */
+  .contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-sm);
+  }
+
+  .contact-label {
+    min-width: auto;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  /* Educación más compacta */
+  .education-item {
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .education-item .institution {
+    font-size: 1.25rem;
+  }
+
+  /* Perfil con texto más pequeño */
+  .profile-text {
+    font-size: var(--font-size-base);
+  }
+}
+
+
+/* ============================================
+   Media Queries para Escritorio (min-width: 768px)
+   ============================================ */
+
+@media (width >= 768px) {
+  /* Navegación horizontal optimizada */
+  .nav-list {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
+
+  .nav-list a {
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+
+  /* Grid de habilidades en múltiples columnas */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Mejorar espaciado en pantallas grandes */
+  .section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  /* Header con mejor espaciado */
+  .site-header {
+    padding: var(--spacing-xl) 0;
+  }
+
+  /* Proyectos con mejor presentación */
+  .project-item {
+    padding: var(--spacing-lg);
+  }
+
+  /* Contacto con layout horizontal */
+  .contact-item {
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  .contact-label {
+    min-width: 120px;
+  }
+}
+
+/* ============================================
+   Media Queries para Pantallas Grandes (min-width: 1024px)
+   ============================================ */
+
+@media (width >= 1024px) {
+  /* Grid de habilidades en 4 columnas para pantallas grandes */
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Aumentar tamaños de fuente en pantallas grandes */
+  :root {
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.25rem;
+    --font-size-h3: 1.75rem;
+  }
+
+  /* Mejor espaciado en pantallas grandes */
+  .section {
+    padding: 4rem 0;
+  }
+}
+
+
+/* ============================================
+   Media Queries para Preferencias del Sistema
+   ============================================ */
+
+/* Alto contraste para mejor accesibilidad */
+@media (prefers-contrast: high) {
+  :root {
+    --color-text: #000;
+    --color-background: #fff;
+    --color-border: #000;
+    --color-primary: #000;
+    --color-secondary: #00e;
+  }
+
+  /* Aumentar contraste en bordes */
+  .section {
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .education-item,
+  .project-item,
+  .skill-category,
+  .contact-item {
+    border: 2px solid var(--color-border);
+  }
+
+  /* Asegurar que los enlaces sean claramente visibles */
+  a {
+    text-decoration: underline;
+  }
+
+  a:focus {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 3px;
+  }
+}
+
+/* Movimiento reducido para usuarios con sensibilidad al movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Eliminar transformaciones en hover */
+  .education-item:hover,
+  .project-item:hover,
+  .skill-category:hover {
+    transform: none;
+  }
+}
+
+/* Modo oscuro (opcional, para usuarios que prefieren esquemas oscuros) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #e0e0e0;
+    --color-secondary: #64b5f6;
+    --color-accent: #ef5350;
+    --color-text: #e0e0e0;
+    --color-text-light: #b0b0b0;
+    --color-background: #1e1e1e;
+    --color-background-alt: #2a2a2a;
+    --color-border: #404040;
+  }
+
+  /* Ajustar sombras para modo oscuro */
+  .education-item,
+  .project-item {
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+  }
+
+  .education-item:hover,
+  .project-item:hover {
+    box-shadow: 0 4px 8px rgb(0 0 0 / 40%);
+  }
+}
